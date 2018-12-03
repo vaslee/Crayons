@@ -37,9 +37,14 @@ extension CrayonsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CrayonTabelView.dequeueReusableCell(withIdentifier: "CrayonCell", for: indexPath)
         let crayons = crayon[indexPath.row]
+        if crayons.name == "Black" {
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = .white
+        }
         cell.textLabel?.text = crayons.name
         cell.detailTextLabel?.text = crayons.hex
         //cell.backgroundColor = UIColor(displayP3Red: CGFloat(crayons.red / 255), green: CGFloat(crayons.green / 255), blue: CGFloat(crayons.blue / 255), alpha: 1.0)
+
         cell.backgroundColor = crayons.color()
         return cell
     }
