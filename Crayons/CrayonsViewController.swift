@@ -18,6 +18,7 @@ class CrayonsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CrayonTabelView.dataSource = self
+        title = "Crayons"
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = CrayonTabelView.indexPathForSelectedRow,
